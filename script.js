@@ -10,13 +10,18 @@ var answer4El = document.querySelector('#li4')
 var questionEl = document.querySelector('#question')
 var containerEL = document.querySelector('.container')
 var answerBoxEl = document.querySelector('#answerBox')
+var Rightanswer;
+var UserAnswer = '';
 
+answerBoxEl.addEventListener('click', function(event){
+  
+    UserAnswer = event.target
+    console.log(UserAnswer);
+    
+    return UserAnswer
+})
 //var for java
 var secondsLeft = 70;
-
-
-
-
 
 //began test
 function beganTest(){
@@ -24,22 +29,20 @@ function beganTest(){
     secondsLeft 
    title.innerHTML = 'Good luck'
    setTime();
-   
-
 }
-//function to replace 
-function replaceContent(a,b,c,d,e){
-    questionEl.textContent = a;
-    answer1El.textContent = b;
-    answer2El.textContent = c;
-    answer3El.textContent = d;
-    answer4El.textContent = e
-
-} 
 //timer for test
 function setTime(){var timeInterval = setInterval(function(){
     secondsLeft--;
     timeTest.textContent = secondsLeft
+    if (secondsLeft === 65){
+        question2()
+    }
+    if (secondsLeft === 60){
+        question3()
+    }
+    if (secondsLeft === 55){
+        question4()
+    }
 
 if (secondsLeft === 0){
    clearInterval(timeInterval)
@@ -49,32 +52,43 @@ if (secondsLeft === 0){
    timeTest.textContent = 5;
 }
 
-
-
-
 },1000)
 
 }
-answerBoxEl.addEventListener('click', function(event){
-    console.log(event.target)
-    return event
-})
 
-buttonR.addEventListener('click', beganTest);
 
-navbar.style.textAlign = 'center'
 //functions for questions 
 function question2(){
-    questionEl.textContent = "A very useful tool used during development and debugging for printing content to the debugger is:"
-    answer1El.textContent = "1. JavaScript"
-answer2El.textContent = "2. terimal/bash"
+    
+    questionEl.textContent = "A very useful tool used during development and debugging for printing content to the debugger is:";
+    answer1El.textContent = "1. JavaScript";
+    answer2El.textContent = "2. terimal/bash";
+    answer3El.textContent = "3. for loops ";
+    answer4El.textContent = "4. console.log";
+  console.log(answerBoxEl);
 
+    
 }
 
-function question3(){}
+function question3(){
+    questionEl.textContent = "String values must be enclosed within ___ when being assigned to vaiables";
+    answer1El.textContent = "1. commas";
+    answer2El.textContent = "2. curly brackets";
+    answer3El.textContent = "3. qoutes";
+    answer4El.textContent = "4. parenthesis";
+}
 
-function question4(){}
+function question4(){
+    questionEl.textContent = "THe condition in an if / else statement is enclosed with ___.";
+    answer1El.textContent = "1. qoutes";
+    answer2El.textContent = "2. curly brackets";
+    answer3El.textContent = "3. parenthesis";
+    answer4El.textContent = "4. square brackets";
+}
 
 
 console.log(this)
 
+
+buttonR.addEventListener('click', beganTest);
+navbar.style.textAlign = 'center'

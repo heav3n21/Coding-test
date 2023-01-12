@@ -11,13 +11,14 @@ body{
 }
 .btnStyle{
     font-size: large;
-    background-color: #ADCCC8;
+    background: linear-gradient(900eg, #be2eed, #5f27cd);
    font-weight: bold;
-    padding: 10px 25px 10px 25px;
+    padding: 15px 55px 15px 55px;
     border-radius: 5px;
     margin-top: 15px;
-    border: solid white 20px;
+    border: none;
     border: groove;
+    cursor: pointer;
     
 }
 .btnAnswer{
@@ -43,6 +44,14 @@ body{
     align-content: center;
     
 }
-@media screen {
+.btnStyle:hover {
     
+    background: linear-gradient(90deg, #3D14FC, #1328F2);
+    
+}
+li:hover{
+  
+   border: #ADCCC8 2px solid;
+    transition: 500ms;
+    cursor: pointer;
 }
