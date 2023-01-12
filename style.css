@@ -1,0 +1,48 @@
+body{
+    background-color: #04060A;
+    color: whitesmoke;
+
+    margin: 0;
+    padding: 5px;
+}
+
+.title{
+    margin-top: 90px;
+}
+.btnStyle{
+    font-size: large;
+    background-color: #ADCCC8;
+   font-weight: bold;
+    padding: 10px 25px 10px 25px;
+    border-radius: 5px;
+    margin-top: 15px;
+    border: solid white 20px;
+    border: groove;
+    
+}
+.btnAnswer{
+    display: flex;
+    background-color: #ADCCC8;
+    height: auto;
+    width: auto;
+    font-size: 250%;
+    font-weight: bolder;
+    margin-top: 10px;
+    flex-shrink: 1;
+    color: #04060A;
+   
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    
+    margin: 50px;
+    border: 2px white solid;
+    border-radius: 5px;
+    align-items: center;
+    align-content: center;
+    
+}
+@media screen {
+    
+}
