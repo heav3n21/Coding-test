@@ -11,19 +11,35 @@
 
     <nav class = 'navBar' >
         
-    <h1 class = 'title'>Welcome to a coding test </h1>
-    <button class=" btnStyle"  id = 'btnScript'>Start</button>
+    <h1 class = 'title'>Welcome to a coding test</h1>
+    <button class=" btnStyle"  id = 'btnScript'>Start</button> <button class="btnStyle" id = 'btnscores'>Scores</button>
 </nav>
 <section class = 'container'>
     
     <h3 id = 'question'>Commonly used data types do Not include? </h3>
-    <h5>time remaing:<span id = 'Time'> 75</span></h5>
+    <h5>time remaing:<span id = 'Time'> 75</span> <span class = "WorR">WRONG</span></h5>
     <ol id = 'answerBox'>
-        <li  class="btnAnswer" id = 'li1'> 1. BOOLEANS</li>
-        <li  class="btnAnswer" id = 'li2'>2. STRINGS</li>
-        <li  class="btnAnswer" id = 'li3'>3. ALERTS</li>
-        <li  class="btnAnswer" id = "li4">4. NUMBERS</li>
+        <li  class="btnAnswer f" id = 'li1'> 1. BOOLEANS</li>
+        <li  class="btnAnswer f" id = 'li2'>2. STRINGS</li>
+        <li  class="btnAnswer f" id = 'li3'>3. ALERTS</li>
+        <li  class="btnAnswer f" id = "li4">4. NUMBERS</li>
     </ol>
+</section>
+<section class = 'container' id ='container2'>
+    <h3>score</h3>
+
+    <ol id = 'answerBox'>
+        <form >
+        <label for="name">name:</label>
+        <input type="Name" name="Name" id="name" placeholder="Coraline" />
+        <button class = 'btnStyle2' id = 'Submit-score'>Submit</button>
+    </form>
+        <li  class="btnAnswer" > Answers correct: <span class = 'win'>0</span> </li>
+        <li  class="btnAnswer" >Answers incorrect: <span class = 'loss'>0</span></li>
+        
+    </ol>
+    
+ 
 </section>
 
 

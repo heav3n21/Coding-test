@@ -7,7 +7,7 @@ body{
 }
 
 .title{
-    margin-top: 90px;
+    margin-top: 10px;
 }
 .btnStyle{
     font-size: large;
@@ -15,10 +15,23 @@ body{
    font-weight: bold;
     padding: 15px 55px 15px 55px;
     border-radius: 5px;
-    margin-top: 15px;
+    margin-top: 5px;
     border: none;
     border: groove;
     cursor: pointer;
+    
+}
+.btnStyle2{
+    font-size: 2vw;
+    background: linear-gradient( #be2eed, #5f27cd);
+   font-weight: bold;
+    padding: 5px 15px 5px 15px;
+    border-radius: 5px;
+    margin-top: 5px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-end;
     
 }
 .btnAnswer{
@@ -51,9 +64,19 @@ body{
     background: linear-gradient(90deg, #5f27cd, #be2eed);
     transition: 35s;
     
+    
 }
-li:hover{
+.btnStyle2 :hover {
+    
+    background: linear-gradient(90deg, #5f27cd, #be2eed);
+    transition: 35s;
+    color: #9D9BEB;
+    
+    
+}
+.f:hover{
   
+  color:#9D9BEB;
    border-radius: 10px ;
     transition: 500ms;
     cursor: pointer;
@@ -68,4 +91,24 @@ ol{
 h5{
     font-size: 2.3vw;
     margin: 5px;
+}
+.WorR{
+    font-style:unset;
+
+}
+li:hover{
+    cursor: default;
+}
+#name{
+    background-color:  #04060A;
+    font-size: 4vw;
+    display: flex;
+   width: 39vw;
+   font-weight: bold;
+   color:   #9D9BEB;
+}
+label{
+    font-weight: bold;
+    font-size: 3vw;
+    text-align: center;
 }
