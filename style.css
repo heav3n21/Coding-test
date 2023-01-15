@@ -11,7 +11,7 @@ body{
 }
 .btnStyle{
     font-size: large;
-    background: linear-gradient(900eg, #be2eed, #5f27cd);
+    background: linear-gradient( #be2eed, #5f27cd);
    font-weight: bold;
     padding: 15px 55px 15px 55px;
     border-radius: 5px;
@@ -23,21 +23,23 @@ body{
 }
 .btnAnswer{
     display: flex;
-    background-color: #ADCCC8;
+    background: linear-gradient(90deg, #3D14FC, #1328F2);
+    border-radius: 7px ;
     height: auto;
-    width: auto;
-    font-size: 250%;
+    width: 40vw;
+    font-size:4.3vw;
     font-weight: bolder;
     margin-top: 10px;
     flex-shrink: 1;
     color: #04060A;
+   
    
 }
 .container{
     display: flex;
     flex-direction: column;
     
-    margin: 50px;
+    margin: 30px;
     border: 2px white solid;
     border-radius: 5px;
     align-items: center;
@@ -46,12 +48,24 @@ body{
 }
 .btnStyle:hover {
     
-    background: linear-gradient(90deg, #3D14FC, #1328F2);
+    background: linear-gradient(90deg, #5f27cd, #be2eed);
+    transition: 35s;
     
 }
 li:hover{
   
-   border: #ADCCC8 2px solid;
+   border-radius: 10px ;
     transition: 500ms;
     cursor: pointer;
+}
+#question{
+    font-size: 3vw;
+    width: 40vw;
+}
+ol{
+    padding-left: 10px;
+}
+h5{
+    font-size: 2.3vw;
+    margin: 5px;
 }
