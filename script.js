@@ -15,9 +15,11 @@ var lose = document.querySelector('.loss');
 var Rightanswer;
 var scoreEL = document.querySelector('#container2');
 var WorC = document.querySelector('.WorR');
-var btnHighScores = document.querySelector('btnScores');
+var btnHighScores = document.querySelector('#btnscores');
 var nameInput = document.querySelector('#name');
 var btnSubmitScore = document.querySelector('#Submit-score');
+var scoreListEl = document.querySelector('#scoreList')
+var container3 = document.querySelector('.high-score');
 
 var loseCounter = 0;
 var winCounter = 0;
@@ -25,34 +27,27 @@ var secondsLeft = 70;
 var timerCount;
 var timer;
 var hi;
-
-
-
-
-
-
-
-
-//var for java
-
-
+var higscoreList = [];
 
 
 //began test
 function beganTest() {
+    containerEL.style.display = 'flex'
+    container3.style.display = 'none';
+    scoreEL.style.display = "none";
     buttonR.disabled = true;
+    btnHighScores.disabled = true;
+    btnSubmitScore.disabled = false;
+       btnSubmitScore.textContent = 'submit'
+
     title.innerHTML = 'Good luck'
-    timerCount = 75;
+    timerCount = 5;
 
     setTime()
     an()
 
 }
-
-function d() {
-    console.log(timerCount)
-}
-
+//set timer
 function setTime() {
 
     var time = setInterval(function () {
@@ -76,9 +71,9 @@ function setTime() {
             buttonR.disabled = false;
             secondsLeft = 70;
             timeTest.textContent = 5;
-            scoreboard()
-            setlosses()
             
+            scoreboard()
+            btnHighScores.disabled = false;
         }
 
 
@@ -100,6 +95,7 @@ function an() {
 
 
 //functions for questions 
+//questions
 function question2() {
 
     questionEl.textContent = "A very useful tool used during development and debugging for printing content to the debugger is:";
@@ -114,17 +110,18 @@ function question2() {
         if (hi == "li4") {
             console.log('correct2')
             WorC.textContent = "CORRECT";
+            winCounter += 1;
             WorC.style.color = "green";
         }
         else {
             console.log("wrong2");
             WorC.textContent = "INCORRECT";
             WorC.style.color = "red";
+            loseCounter += 1;
         }
-},10000)
-
+    },10000)
+    
 }
-
 function question3() {
     questionEl.textContent = "String values must be enclosed within ___ when being assigned to vaiables";
     answer1El.textContent = "1. commas";
@@ -171,55 +168,76 @@ function question4() {
 },10000)
 }
 
-//setwins and losses
-function setWins() {
-    win.textContent = winCounter;
-    localStorage.setItem('winCount', winCounter);
-}
-function setlosses() {
-    lose.textContent = loseCounter;
-    localStorage.setItem('loseCount', loseCounter);
-}
-//wins and losses
-function getWins() {
-    var storedWins = localStorage.getItem('winCount')
-    if (storedWins === null) {
-        winCounter = 0;
-    } else {
-        winCounter = storedWins;
-    }
-    winCounter.textContent = winCounter;
-}
-function getLosses() {
-    var storedLosses = localStorage.getItem('loseCount');
-    if (storedLosses === null) {
-        loseCounter = 0;
-
-    } else {
-        loseCounter = storedLosses;
-    }
-    loseCounter.textContent = loseCounter;
-}
 function init() {
-    scoreEL.style.display = "none "
+    container3.style.display = 'none';
+    scoreEL.style.display = "none";
+    var storedplayers = JSON.parse(localStorage.getItem('players'))
+   if (storedplayers !== null){
+    higscoreList = storedplayers;
+   }
+renderTohighscore()
+
 }
 
 
 //scoreboard
+function renderTohighscore(){
+    scoreListEl.innerHTML = "";
+    container3.style.display = 'flex'
+    containerEL.style.display = "none"
+    scoreEL.style.display = 'none'
+    
+    for (var i = 0; i < higscoreList.length; i++){
+        var higscoreL = higscoreList[i];
+        var li = document.createElement('li');
+        li.textContent = higscoreL;
+        li.setAttribute('class', i);
+        scoreListEl.appendChild(li)
+        
+    }
+
+}
 function scoreboard() {
+    btnHighScores.style.display = false;
     containerEL.style.display = "none"
     scoreEL.style.display = "flex"
     win.innerHTML = winCounter
-lose.innerHTML = loseCounter
-  
+    lose.innerHTML = loseCounter
+    
 }
 
+//btn event listeners
 
 buttonR.addEventListener('click', beganTest);
+btnHighScores.addEventListener('click', renderTohighscore)
 btnSubmitScore.addEventListener('click',function(event){
+   
+   
     event.preventDefault();
+   
+    // var user = nameInput.value.trim()
+    var name = document.querySelector('#name').value.trim();
     
+    if (name === "" ){
+        alert("please enter a name and make sure its less then 7 char")
+        return
+    }else{
+        name = (name +" "+ loseCounter+ "/4" );
+        localStorage.setItem('name', name);
+        localStorage.setItem('loss',loseCounter);
+        localStorage.setItem('correct',winCounter)
+        higscoreList.push(name);
+       storeList()
+       btnSubmitScore.disabled = true;
+       btnSubmitScore.textContent = 'uploaded'
+
+        // renderTohighscore()
+    }
 } )
+function storeList(){
+    localStorage.setItem('players', JSON.stringify(higscoreList))
+}
 // btnHighScores.addEventListener('click',Showhighscore)
 navbar.style.textAlign = 'center'
-// init()
+init()
+

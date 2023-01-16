@@ -10,10 +10,10 @@ body{
     margin-top: 10px;
 }
 .btnStyle{
-    font-size: large;
+    font-size: 4vw;
     background: linear-gradient( #be2eed, #5f27cd);
    font-weight: bold;
-    padding: 15px 55px 15px 55px;
+    padding: 1vw 3vw 1vw 3vw;
     border-radius: 5px;
     margin-top: 5px;
     border: none;
@@ -111,4 +111,18 @@ label{
     font-weight: bold;
     font-size: 3vw;
     text-align: center;
+}
+li{
+    display: flex;
+    background: linear-gradient(90deg, #3D14FC, #1328F2);
+    border-radius: 7px ;
+    height: auto;
+    width: 40vw;
+    font-size:4.3vw;
+    font-weight: bolder;
+    margin-top: 10px;
+    flex-shrink: 1;
+    color: #04060A;
+   
+    
 }
