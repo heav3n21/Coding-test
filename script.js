@@ -41,7 +41,7 @@ function beganTest() {
        btnSubmitScore.textContent = 'submit'
 
     title.innerHTML = 'Good luck'
-    timerCount = 5;
+    timerCount = 75;
 
     setTime()
     an()
