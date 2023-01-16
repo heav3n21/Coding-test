@@ -240,4 +240,3 @@ function storeList(){
 // btnHighScores.addEventListener('click',Showhighscore)
 navbar.style.textAlign = 'center'
 init()
-

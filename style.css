@@ -19,6 +19,7 @@ body{
     border: none;
     border: groove;
     cursor: pointer;
+    color: #04060A;
     
 }
 .btnStyle2{
@@ -32,7 +33,7 @@ body{
     cursor: pointer;
     display: flex;
     justify-content: flex-end;
-    
+    color: #04060A;
 }
 .btnAnswer{
     display: flex;
