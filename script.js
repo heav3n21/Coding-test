@@ -24,7 +24,8 @@ var container3 = document.querySelector('.high-score');
 var loseCounter = 0;
 var winCounter = 0;
 var secondsLeft = 70;
-var timerCount;
+var timerCount = 75;
+var timerCount2 = 75;
 var timer;
 var hi;
 var higscoreList = [];
@@ -39,22 +40,38 @@ function beganTest() {
     btnHighScores.disabled = true;
     btnSubmitScore.disabled = false;
        btnSubmitScore.textContent = 'submit'
+       WorC.textContent = '';
 
     title.innerHTML = 'Good luck'
     timerCount = 75;
 
     setTime()
     an()
+    timer2()
 
 }
 //set timer
-function setTime() {
+function timer2(){
+    var testtimer = setInterval(function(x){
+        timerCount2--;
+        timeTest.textContent = timerCount
+        if (x = true){
+            timerCount2 = timerCount2 - 10
+        }
+    },1000)
+
+}
+function setTime(c) {
 
     var time = setInterval(function () {
         timerCount--;
-        timeTest.textContent = timerCount
+        if(timerCount === 74){
+          
+            question1()
+        }
 
         if (timerCount === 65) {
+            
             question2()
 
         }
@@ -65,7 +82,7 @@ function setTime() {
             question4()
         }
 
-        else if (timerCount === 0) {
+        else if (0 === c) {
             clearInterval(time)
             title.textContent = "YOU LOST"
             buttonR.disabled = false;
@@ -73,13 +90,12 @@ function setTime() {
             timeTest.textContent = 5;
             
             scoreboard()
-            btnHighScores.disabled = false;
+            
         }
 
 
 
     }, 1000)
-
 
 
 }
@@ -96,6 +112,33 @@ function an() {
 
 //functions for questions 
 //questions
+function question1() {
+    WorC.textContent = "";
+    questionEl.textContent = "Commonly used data types do Not include? ";
+    answer1El.textContent = "1. BOOLEANS";
+    answer2El.textContent = "2. STRINGS";
+    answer3El.textContent = "3. ALERTS ";
+    answer4El.textContent = "4. NUMBERS";
+
+    console.log(hi);
+    console.log(typeof timerCount)
+    setTimeout(()=> {
+        if (hi == "li3") {
+            console.log('correct2')
+            WorC.textContent = "CORRECT";
+            winCounter += 1;
+            WorC.style.color = "green";
+        }
+        else {
+            console.log("wrong2");
+            WorC.textContent = "INCORRECT";
+            WorC.style.color = "red";
+            loseCounter += 1;
+            var x = true;
+            timer2(x);
+        }
+    },10000)
+}
 function question2() {
 
     questionEl.textContent = "A very useful tool used during development and debugging for printing content to the debugger is:";
@@ -118,6 +161,8 @@ function question2() {
             WorC.textContent = "INCORRECT";
             WorC.style.color = "red";
             loseCounter += 1;
+            var x = true;
+            timer2(x);
         }
     },10000)
     
@@ -141,6 +186,7 @@ function question3() {
         WorC.textContent = "INCORRECT";
         WorC.style.color = "red";
         loseCounter += 1;
+        timerCount2 -= 10;
     }
 },10000)
 
@@ -164,6 +210,9 @@ function question4() {
         WorC.textContent = "INCORRECT";
         WorC.style.color = "red";
        loseCounter+= 1;
+       timerCount2 -= 10;
+       var x = 0
+       setTime(x)
     }
 },10000)
 }
@@ -211,7 +260,7 @@ function scoreboard() {
 buttonR.addEventListener('click', beganTest);
 btnHighScores.addEventListener('click', renderTohighscore)
 btnSubmitScore.addEventListener('click',function(event){
-   
+    btnHighScores.disabled = false;
    
     event.preventDefault();
    
