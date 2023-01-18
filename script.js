@@ -52,11 +52,11 @@ function beganTest() {
 }
 //set timer
 function timer2(){
-    var testtimer = setInterval(function(x){
+    var testtimer = setInterval(function(){
         timerCount2--;
         timeTest.textContent = timerCount
-        if (x = true){
-            timerCount2 = timerCount2 - 10
+        if (timerCount2 == 0){
+            clearInterval(testtimer)
         }
     },1000)
 
@@ -82,7 +82,7 @@ function setTime(c) {
             question4()
         }
 
-        else if (0 === c) {
+        else if (timerCount === 0) {
             clearInterval(time)
             title.textContent = "YOU LOST"
             buttonR.disabled = false;
@@ -211,8 +211,7 @@ function question4() {
         WorC.style.color = "red";
        loseCounter+= 1;
        timerCount2 -= 10;
-       var x = 0
-       setTime(x)
+       
     }
 },10000)
 }
